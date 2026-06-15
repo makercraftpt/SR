@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_Indice.md",
+                "file": "Fichas_Estudo/01_Denavit_Hartenberg.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00_Indice"
+              "title": "01_Denavit_Hartenberg"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00_Indice.md",
+                "file": "Fichas_Estudo/01_Denavit_Hartenberg.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 00_Indice"
+              "title": "Backlinks for 01_Denavit_Hartenberg"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00_Indice.md",
+                "file": "Fichas_Estudo/01_Denavit_Hartenberg.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 00_Indice"
+              "title": "Outgoing links from 01_Denavit_Hartenberg"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00_Indice.md",
+                "file": "Fichas_Estudo/01_Denavit_Hartenberg.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 00_Indice"
+              "title": "Outline of 01_Denavit_Hartenberg"
             }
           }
         ]
@@ -185,9 +185,19 @@
   },
   "active": "d4dfa011f0e4b82e",
   "lastOpenFiles": [
+    "Fichas_Estudo/01_Denavit_Hartenberg.md.tmp.12064.699b22cc1513",
+    "_sidebar.md",
+    "Fichas_Estudo/01_Denavit_Hartenberg.md",
+    "Fichas_Estudo/01_Denavit_Hartenberg.md.tmp.28444.0543816f7a4e",
+    "Fichas_Estudo/01_Denavit_Hartenberg.md.tmp.28444.ae7ab57fa678",
+    "00_Indice.md",
+    "img/Sistemas de eixos metodo da mão direita (1).jpeg",
+    "img/Sistemas de eixos metodo da mão direita.jpeg",
+    "img/Sistemas de eixos no Robot segundo o metodo DH.png",
+    "img",
+    "New folder",
     "README.md",
     "README.md.tmp.29540.a3cd339018b6",
-    "_sidebar.md",
     "_sidebar.md.tmp.29540.080034bd2d7c",
     "index.html",
     "frequencia_dos_temas.md",

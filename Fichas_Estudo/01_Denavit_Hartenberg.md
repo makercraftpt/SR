@@ -37,7 +37,7 @@ DH é uma convenção para descrever a geometria de um manipulador robótico com
 > **Regra 3 — Y pela mão direita**
 > Yᵢ completa o sistema: X × Y = Z
 
-![Regra da mão direita — X, Y, Z nos dedos](../img/Sistemas de eixos metodo da mão direita.jpeg)
+![Regra da mão direita — X, Y, Z nos dedos](<../img/Sistemas de eixos metodo da mão direita.jpeg>)
 
 **α = ângulo de Zᵢ₋₁ para Zᵢ medido em torno de Xᵢ**
 → Se Z rodou 90° → α = ±90°; se ficou igual → α = 0°
@@ -46,7 +46,7 @@ DH é uma convenção para descrever a geometria de um manipulador robótico com
 
 ## Exemplo resolvido — SR 2024/25 (θ₁, θ₂, d₃)
 
-![Robot SR 2024/25 com sistemas de eixos DH](../img/Sistemas de eixos no Robot segundo o metodo DH.png)
+![Robot SR 2024/25 com sistemas de eixos DH](<../img/Sistemas de eixos no Robot segundo o metodo DH.png>)
 
 ```
 Frame 0 (base):    Z₀ = ↑cima     X₀ = →frente    Y₀ = ecrã
