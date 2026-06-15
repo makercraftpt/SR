@@ -19,6 +19,16 @@ DH é uma convenção para descrever a geometria de um manipulador robótico com
 | Comprimento do elo | aᵢ      | constante                        | Distância entre Zᵢ₋₁ e Zᵢ ao longo de Xᵢ |
 | Torção do elo      | αᵢ      | constante                        | Ângulo entre Zᵢ₋₁ e Zᵢ em torno de Xᵢ    |
 
+**O que significa cada parâmetro em linguagem simples:**
+
+- **θ** — quanto a junta rodou em torno do seu próprio eixo Z (é a variável de uma junta rotacional)
+- **d** — quanto se subiu/desceu ao longo do eixo Z para chegar à junta seguinte (é a variável de uma junta prismática)
+- **a** — distância perpendicular entre dois eixos Z que não se cruzam (comprimento físico do elo). Quando os eixos Z se intersectam no mesmo ponto, **a = 0**
+- **α** — "quanto é que o eixo Z rodou de uma junta para a próxima?", medido em torno de Xᵢ. Exemplo do robot 2024/25:
+  - α₁ = −90° → Z₀ (cima) rodou −90° em torno de X₁ (frente) para chegar a Z₁ (ecrã)
+  - α₂ = +90° → Z₁ (ecrã) rodou +90° em torno de X₂ (frente) para chegar a Z₂ (cima)
+  - α₃ = 0° → Z₂ e Z₃ paralelos, sem torção
+
 **Regra rápida:**
 - Junta **rotacional** → θᵢ é variável, dᵢ é constante
 - Junta **prismática** → dᵢ é variável, θᵢ = 0 (ou constante)
@@ -75,7 +85,7 @@ $$^{i-1}T_i = \begin{bmatrix} c\theta & -s\theta c\alpha & s\theta s\alpha & a\,
 
 ## Exemplo resolvido — SR 2024/25 (θ₁, θ₂, d₃)
 
-![Robot SR 2024/25 com sistemas de eixos DH](<../img/Sistemas de eixos no Robot segundo o metodo DH.png>)
+![Robot SR 2024/25 com sistemas de eixos DH](../img/SR_2024_25_robot_frames_DH.png)
 
 ```
 Frame 0 (base):    Z₀ = ↑cima     X₀ = →frente    Y₀ = ecrã
@@ -142,6 +152,19 @@ Porquê α₂ = +90°?
 - α = −90° → igual mas sentido contrário
 - α = 0° → Zᵢ₋₁ ∥ Zᵢ (frames no mesmo plano)
 - α = 180° → Zᵢ aponta no sentido contrário de Zᵢ₋₁
+
+### Sentido de rotação — Regra da Mão Direita (rotação)
+
+> **Aponta o polegar no sentido de X positivo → os dedos enrolam no sentido positivo de rotação.**
+
+- α = **+90°** → rotação no sentido **contrário aos ponteiros do relógio**, visto de frente para +X
+- α = **−90°** → rotação no sentido **dos ponteiros do relógio**, visto de frente para +X
+
+Exemplo no robot 2024/25 (X aponta para a frente):
+- α₁ = −90°: sentido dos ponteiros do relógio → Z₀ (cima) roda para Z₁ (ecrã) ✓
+- α₂ = +90°: sentido contrário ao relógio → Z₁ (ecrã) roda para Z₂ (cima) ✓
+
+![Regra da mão direita — sentido de rotação](<../img/rotação motodo mão direita.jpeg>)
 
 ---
 
