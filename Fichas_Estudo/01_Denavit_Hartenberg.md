@@ -23,6 +23,35 @@ DH é uma convenção para descrever a geometria de um manipulador robótico com
 - Junta **rotacional** → θᵢ é variável, dᵢ é constante
 - Junta **prismática** → dᵢ é variável, θᵢ = 0 (ou constante)
 
+![Modelo 3D TinkerCad — parâmetros DH](<../img/robot_parametros_DH_tinkercad.png>)
+
+> A peça teal entre a coluna vermelha (Z₀) e o cilindro laranja (Z₁) representa **a** — a distância perpendicular entre dois eixos Z não coincidentes. Quando os eixos Z se cruzam no mesmo ponto, **a = 0**.
+
+---
+
+## Como se constrói a matriz DH
+
+A transformação de frame i−1 para frame i é o produto de **4 matrizes elementares** nesta ordem:
+
+$$^{i-1}T_i = Rot(Z,\theta) \cdot Trans(Z,d) \cdot Trans(X,a) \cdot Rot(X,\alpha)$$
+
+| Passo | Operação | O que faz |
+|---|---|---|
+| 1 | Rot(Z, θ) | Roda a junta |
+| 2 | Trans(Z, d) | Sobe/desce ao longo de Z |
+| 3 | Trans(X, a) | Avança ao longo de X |
+| 4 | Rot(X, α) | Torce para alinhar o eixo seguinte |
+
+Cada uma das 4 matrizes elementares:
+
+$$Rot(Z,\theta) = \begin{bmatrix} c\theta & -s\theta & 0 & 0 \\ s\theta & c\theta & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} \quad Trans(Z,d) = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & d \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+$$Trans(X,a) = \begin{bmatrix} 1 & 0 & 0 & a \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} \quad Rot(X,\alpha) = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & c\alpha & -s\alpha & 0 \\ 0 & s\alpha & c\alpha & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+Multiplicando as 4 obtém-se a **matriz DH completa**:
+
+$$^{i-1}T_i = \begin{bmatrix} c\theta & -s\theta c\alpha & s\theta s\alpha & a\,c\theta \\ s\theta & c\theta c\alpha & -c\theta s\alpha & a\,s\theta \\ 0 & s\alpha & c\alpha & d \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 ---
 
 ## As 3 regras para colocar eixos (cábula)
