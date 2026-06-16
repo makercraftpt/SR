@@ -52,6 +52,54 @@ $$^{i-1}T_i = Rot(Z,\theta) \cdot Trans(Z,d) \cdot Trans(X,a) \cdot Rot(X,\alpha
 | 3 | Trans(X, a) | Avança ao longo de X |
 | 4 | Rot(X, α) | Torce para alinhar o eixo seguinte |
 
+### Porquê o sen e o cos?
+
+Quando rodas o ponto **(1, 0)** por θ em torno de Z, o ponto novo fica em **(cos θ, sen θ)** — porque:
+- **cos θ** = cateto adjacente / hipotenusa (componente X)
+- **sen θ** = cateto oposto / hipotenusa (componente Y)
+
+Com hipotenusa = 1, as coordenadas são diretamente cos e sen. Essas coordenadas tornam-se a **1ª coluna** da matriz.
+
+| Rotação | θ | sen θ | cos θ |
+|---|---|---|---|
+| Contra relógio (CCW) | + | + | + |
+| Sentido horário (CW) | − | − | + |
+| 90° CCW | +90° | +1 | 0 |
+| 90° CW | −90° | −1 | 0 |
+| 180° | ±180° | 0 | −1 |
+| 0° (sem rotação) | 0° | 0 | +1 |
+
+> **Regra de ouro:** cos θ é sempre positivo para ângulos pequenos. sen θ é **+** se o ponto subiu, **−** se desceu (sentido horário).
+
+### O que significa cada cθ e sθ na matriz?
+
+Cada **coluna** diz para onde vai cada eixo; cada **linha** diz qual é a nova coordenada:
+
+| Posição | Valor | Significado |
+|---|---|---|
+| linha 1, col 1 | **cθ** | contribuição de X antigo para o **novo X** |
+| linha 1, col 2 | **−sθ** | contribuição de Y antigo para o **novo X** |
+| linha 2, col 1 | **sθ** | contribuição de X antigo para o **novo Y** |
+| linha 2, col 2 | **cθ** | contribuição de Y antigo para o **novo Y** |
+
+Ao multiplicar a matriz por um ponto (x, y):
+
+$$x' = c\theta \cdot x - s\theta \cdot y$$
+
+$$y' = s\theta \cdot x + c\theta \cdot y$$
+
+![Ligação entre as equações e as linhas da matriz](../img/rotacao_matriz_explicada.jpg)
+
+**Exemplo:** ponto (1, 0) rodado 90° CCW → em direção a (0, 1):
+- x' = cos90°×1 − sin90°×0 = **0**
+- y' = sin90°×1 + cos90°×0 = **1** → chegou a (0,1) ✓
+
+O **−sθ** na 2ª coluna vem de rodar o ponto **(0,1)** por θ CCW — a sua componente X nova vale **−sen θ** (desloca-se para a esquerda).
+
+![Desenho — sen e cos na rotação CCW e CW](../img/rotacao_seno_coseno.jpg)
+
+---
+
 Cada uma das 4 matrizes elementares:
 
 $$
