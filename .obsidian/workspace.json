@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Fichas_Estudo/01_Denavit_Hartenberg.md",
+                "file": "Fichas_Estudo/02_Cinematica_Direta.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01_Denavit_Hartenberg"
+              "title": "02_Cinematica_Direta"
             }
           }
         ]
@@ -185,8 +185,14 @@
   },
   "active": "d4dfa011f0e4b82e",
   "lastOpenFiles": [
-    "_sidebar.md",
+    "perguntas_por_tema.md",
+    "Fichas_Estudo/02_Cinematica_Direta.md.tmp.35136.092a773d72b3",
+    "frequencia_dos_temas.md",
+    "Exames/LEIA-ME.md",
+    "Exames/SR_2021_22_EpocaNormal_Enunciado.md",
     "Fichas_Estudo/01_Denavit_Hartenberg.md",
+    "_sidebar.md",
+    "Fichas_Estudo/02_Cinematica_Direta.md",
     "Fichas_Estudo/01_Denavit_Hartenberg.md.tmp.31808.1f4101ec7b19",
     "img/rotacao_matriz_explicada.jpg",
     "img/rotacao_matriz_explicada.jpg.0.pdnSave",
@@ -198,7 +204,6 @@
     "Fichas_Estudo/01_Denavit_Hartenberg.md.tmp.26340.7ca5c4aea6b3",
     "index.html.tmp.38604.14d60d228d31",
     "index.html.tmp.38604.a83f8e29aee7",
-    "index.html.tmp.12400.09ecd7d21042",
     "img/rotação motodo mão direita (1).jpeg",
     "img/rotação motodo mão direita.jpeg",
     "img/SR_2024_25_robot_frames_DH.png",
@@ -208,8 +213,6 @@
     "img/_Sistemas de eixos no Robot segundo o metodo DH.png",
     "img/Sistemas de eixos no Robot segundo o metodo DH_2.png",
     "00_Indice.md",
-    "README.md",
-    "frequencia_dos_temas.md",
-    "perguntas_por_tema.md"
+    "README.md"
   ]
 }

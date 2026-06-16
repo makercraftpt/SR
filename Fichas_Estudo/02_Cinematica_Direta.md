@@ -82,6 +82,94 @@ A posição do end-effector:
 
 ---
 
+## Exemplo resolvido — Exame 20-6-2025 (θ₁, θ₂, d₃)
+
+### Tabela DH
+
+| i | θ | d | a | α |
+|---|---|---|---|---|
+| 1 | θ₁ | h₁ | 0 | −90° |
+| 2 | θ₂ | d₂ | 0 | +90° |
+| 3 | 0 | d₃ | 0 | 0° |
+
+### Passo 1 — Calcular ⁰T₁ (θ₁, h₁, a=0, α=−90°)
+
+cos(−90°) = 0, sin(−90°) = −1, a = 0
+
+$$^0T_1 = \begin{bmatrix} c_1 & 0 & -s_1 & 0 \\ s_1 & 0 & c_1 & 0 \\ 0 & -1 & 0 & h_1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+Coluna a coluna:
+- Col 1: [cθ, sθ, 0, 0] = [c₁, s₁, 0, 0]
+- Col 2: [−sθ·cα, cθ·cα, sα, 0] = [−s₁·0, c₁·0, −1, 0] = [0, 0, −1, 0]
+- Col 3: [sθ·sα, −cθ·sα, cα, 0] = [s₁·(−1), −c₁·(−1), 0, 0] = [−s₁, c₁, 0, 0]
+- Col 4: [a·cθ, a·sθ, d, 1] = [0, 0, h₁, 1]
+
+### Passo 2 — Calcular ¹T₂ (θ₂, d₂, a=0, α=+90°)
+
+cos(+90°) = 0, sin(+90°) = 1, a = 0
+
+$$^1T_2 = \begin{bmatrix} c_2 & 0 & s_2 & 0 \\ s_2 & 0 & -c_2 & 0 \\ 0 & 1 & 0 & d_2 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+Coluna a coluna:
+- Col 1: [c₂, s₂, 0, 0]
+- Col 2: [−s₂·0, c₂·0, 1, 0] = [0, 0, 1, 0]
+- Col 3: [s₂·1, −c₂·1, 0, 0] = [s₂, −c₂, 0, 0]
+- Col 4: [0, 0, d₂, 1]
+
+### Passo 3 — Calcular ²T₃ (θ=0, d₃, a=0, α=0°)
+
+cos(0°) = 1, sin(0°) = 0 → matriz identidade com translação d₃
+
+$$^2T_3 = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & d_3 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+### Passo 4 — Multiplicar ⁰T₁ × ¹T₂ (linha por coluna)
+
+$$^0T_1 \times ^1T_2 = \begin{bmatrix} c_1 & 0 & -s_1 & 0 \\ s_1 & 0 & c_1 & 0 \\ 0 & -1 & 0 & h_1 \\ 0 & 0 & 0 & 1 \end{bmatrix} \times \begin{bmatrix} c_2 & 0 & s_2 & 0 \\ s_2 & 0 & -c_2 & 0 \\ 0 & 1 & 0 & d_2 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+**Linha 1** = [c₁, 0, −s₁, 0]:
+- × Col 1: c₁·c₂ + 0·s₂ + (−s₁)·0 + 0·0 = **c₁c₂**
+- × Col 2: c₁·0 + 0·0 + (−s₁)·1 + 0·0 = **−s₁**
+- × Col 3: c₁·s₂ + 0·(−c₂) + (−s₁)·0 + 0·0 = **c₁s₂**
+- × Col 4: c₁·0 + 0·0 + (−s₁)·d₂ + 0·1 = **−s₁d₂**
+
+**Linha 2** = [s₁, 0, c₁, 0]:
+- × Col 1: s₁·c₂ + 0 + 0 + 0 = **s₁c₂**
+- × Col 2: s₁·0 + 0 + c₁·1 + 0 = **c₁**
+- × Col 3: s₁·s₂ + 0 + 0 + 0 = **s₁s₂**
+- × Col 4: 0 + 0 + c₁·d₂ + 0 = **c₁d₂**
+
+**Linha 3** = [0, −1, 0, h₁]:
+- × Col 1: 0 + (−1)·s₂ + 0 + 0 = **−s₂**
+- × Col 2: 0 + (−1)·0 + 0 + 0 = **0**
+- × Col 3: 0 + (−1)·(−c₂) + 0 + 0 = **c₂**
+- × Col 4: 0 + 0 + 0 + h₁·1 = **h₁**
+
+**Linha 4** = [0, 0, 0, 1] → sempre [0, 0, 0, 1]
+
+$$^0T_{12} = \begin{bmatrix} c_1c_2 & -s_1 & c_1s_2 & -s_1d_2 \\ s_1c_2 & c_1 & s_1s_2 & c_1d_2 \\ -s_2 & 0 & c_2 & h_1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+### Passo 5 — Multiplicar ⁰T₁₂ × ²T₃
+
+Como ²T₃ é a identidade com só d₃ na posição (3,4):
+- **Colunas 1, 2, 3 não mudam**
+- **Coluna 4 nova** = col4 antiga + col3 × d₃
+
+- Linha 1: −s₁d₂ + c₁s₂·d₃
+- Linha 2: c₁d₂ + s₁s₂·d₃
+- Linha 3: h₁ + c₂·d₃
+- Linha 4: 1
+
+### Resultado final — ⁰T₃
+
+$$\boxed{^0T_3 = \begin{bmatrix} c_1c_2 & -s_1 & c_1s_2 & c_1s_2d_3 - s_1d_2 \\ s_1c_2 & c_1 & s_1s_2 & s_1s_2d_3 + c_1d_2 \\ -s_2 & 0 & c_2 & c_2d_3 + h_1 \\ 0 & 0 & 0 & 1 \end{bmatrix}}$$
+
+A 4ª coluna dá a posição do end-effector no referencial base:
+- **Px** = c₁s₂d₃ − s₁d₂
+- **Py** = s₁s₂d₃ + c₁d₂
+- **Pz** = c₂d₃ + h₁
+
+---
+
 ## Atalhos úteis
 
 | α | cos α | sin α |

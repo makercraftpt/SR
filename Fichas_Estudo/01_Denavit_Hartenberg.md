@@ -219,12 +219,17 @@ Porquê α₂ = +90°?
 
 > **Aponta o polegar no sentido de X positivo → os dedos enrolam no sentido positivo de rotação.**
 
-- α = **+90°** → rotação no sentido **contrário aos ponteiros do relógio**, visto de frente para +X
-- α = **−90°** → rotação no sentido **dos ponteiros do relógio**, visto de frente para +X
+**Como determinar o sinal de α:**
 
-Exemplo no robot 2024/25 (X aponta para a frente):
-- α₁ = −90°: sentido dos ponteiros do relógio → Z₀ (cima) roda para Z₁ (ecrã) ✓
-- α₂ = +90°: sentido contrário ao relógio → Z₁ (ecrã) roda para Z₂ (cima) ✓
+> Coloca-te fora do eixo +Xᵢ, a olhar em direção à origem (+X aponta para ti).
+> Observa como Zᵢ₋₁ roda até chegar a Zᵢ:
+> - Roda **CW** (sentido dos ponteiros) → **α negativo**
+> - Roda **CCW** (sentido contrário) → **α positivo**
+
+Exemplo no robot 2024/25:
+
+- α₁ = −90°: olhando de +X₁, Z₀(↑) roda **CW** para chegar a Z₁(⊗) → α = **−90°** ✓
+- α₂ = +90°: olhando de +X₂, Z₁(⊗) roda **CCW** para chegar a Z₂(↑) → α = **+90°** ✓
 
 ![Regra da mão direita — sentido de rotação](<../img/rotação motodo mão direita.jpeg>)
 
